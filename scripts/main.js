@@ -12,11 +12,7 @@ const random = (min, max) => {
 };
 
 const randomRGB = () => {
-  return `rgb(${random(0, 255)}, ${random(255, 255, 255)}, ${random(
-    255,
-    255,
-    255
-  )})`;
+  return `rgb(${random(0, 255)}, ${random(0, 255)}, ${random(0, 255 )})`;
 };
 
 //Creamos la clase
@@ -68,14 +64,17 @@ class Ball {
       if (!(this === ball)) {
         const dx = this.x - ball.x;
         const dy = this.y - ball.y;
-      }
-      //OJO QUE PUEDE CAMBIAR EN EL EXAMEN
+        //OJO QUE PUEDE CAMBIAR EN EL EXAMEN
       //Calcular la distancia entre el centro de la pelota actual y la pelota de la iteración
       const distance = Math.sqrt(dx * dx + dy * dy);
 
-      if (distance > this.size + ball.size) {
-        ball.color = this.color = randomRGB();
+        if (distance > this.size + ball.size) {
+            ball.color = this.color = randomRGB();
+          }
       }
+      
+
+      
     }
   }
 }
@@ -101,5 +100,16 @@ while (balls.length < 25){
 
 //Funcion que define el bucle principal del programa
 const loop = () =>{
-    
+    //Establece un color de fondo semitransparente
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.25)'
+    ctx.fillRect(0, 0, width, height);
+
+    for (const ball of balls) {
+        ball.draw() //Dibuja la bola
+        ball.update() //Actualizamos la posicion de la pelota
+        ball.collisionDetected() //Detectamos la colision 
+    }
+
+    requestAnimationFrame(loop);
 }
+loop()
