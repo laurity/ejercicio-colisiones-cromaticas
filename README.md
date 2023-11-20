@@ -1,10 +1,9 @@
 # Caos de Colisiones Cromáticas
 
-***Con 3 asteriscos, estamos escribiendo en cursiva***
 
 ***Ejemplo de aplicación tanto de Objetos de Alto Nivel en Js como Objetos Nativos***
 
-## Introducción al concepto de Modulación de .j's en JavaScript**
+## Introducción al concepto de Modulación de .j's en JavaScript
 
 * Scripts
     1. ball-class.js
